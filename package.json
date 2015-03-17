@@ -2,11 +2,11 @@
   "name": "open-git-modified-files",
   "main": "./lib/open-git-modified-files",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Open git modified files",
   "activationCommands": {
-    "atom-workspace": "open-git-modified-files:toggle"
+    "atom-workspace": "open-git-modified-files:open"
   },
-  "repository": "https://github.com/atom/open-git-modified-files",
+  "repository": "https://github.com/hmatsuda/open-git-modified-files",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
