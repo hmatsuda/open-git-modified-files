@@ -19,4 +19,5 @@ module.exports = OpenGitModifiedFiles =
   open: ->
     repo = atom.project.getRepo()
     for filePath of repo.statuses
-      atom.workspace.open(filePath)
+      if repo.isPathModified(filePath) or repo.isPathNew(filePath)
+        atom.workspace.open(filePath)
