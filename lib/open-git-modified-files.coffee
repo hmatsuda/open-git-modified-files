@@ -25,9 +25,14 @@ module.exports = OpenGitModifiedFiles =
     openGitModifiedFilesViewState: @openGitModifiedFilesView.serialize()
 
   toggle: ->
-    console.log 'OpenGitModifiedFiles was toggled!'
-
-    if @modalPanel.isVisible()
-      @modalPanel.hide()
-    else
-      @modalPanel.show()
+    repo = atom.project.getRepo()
+    for filePath of repo.statuses
+      console.log filePath
+      atom.workspace.open(filePath)
+    # 
+    # console.log 'OpenGitModifiedFiles was toggled!'
+    # 
+    # if @modalPanel.isVisible()
+    #   @modalPanel.hide()
+    # else
+    #   @modalPanel.show()
