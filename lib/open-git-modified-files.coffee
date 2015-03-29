@@ -13,8 +13,6 @@ module.exports = OpenGitModifiedFiles =
   deactivate: ->
     @subscriptions.dispose()
 
-  serialize: ->
-
   open: ->
     repo = atom.project.getRepo()
     for filePath of repo.statuses
