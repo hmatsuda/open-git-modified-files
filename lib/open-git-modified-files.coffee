@@ -1,7 +1,6 @@
 {CompositeDisposable} = require 'atom'
 
 module.exports = OpenGitModifiedFiles =
-  modalPanel: null
   subscriptions: null
 
   activate: (state) ->
