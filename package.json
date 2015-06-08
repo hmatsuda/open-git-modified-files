@@ -1,7 +1,7 @@
 {
   "name": "open-git-modified-files",
   "main": "./lib/open-git-modified-files",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Open git modified files",
   "activationCommands": {
     "atom-workspace": "open-git-modified-files:open"
