@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'atom'
+path = require 'path'
 
 module.exports =
   subscriptions: null
@@ -12,10 +13,13 @@ module.exports =
     @subscriptions.dispose()
 
   open: ->
-    repo = atom.project.getRepo()
-    if repo?
-      for filePath of repo.statuses
-        if repo.isPathModified(filePath) or repo.isPathNew(filePath)
-          atom.workspace.open(filePath)
+    repos = atom.project.getRepositories()
+    if repos?
+      for repo in repos
+        for filePath of repo.statuses
+          console.log filePath
+          if repo.isPathModified(filePath) or repo.isPathNew(filePath)
+            console.log path.join(repo.repo.workingDirectory, filePath)
+            atom.workspace.open(path.join(repo.repo.workingDirectory, filePath))
     else
       atom.beep()
