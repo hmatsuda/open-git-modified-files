@@ -16,6 +16,7 @@ module.exports =
     repos = atom.project.getRepositories()
     if repos?
       for repo in repos
+        break unless repo?
         for filePath of repo.statuses
           console.log filePath
           if repo.isPathModified(filePath) or repo.isPathNew(filePath)
