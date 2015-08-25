@@ -18,9 +18,7 @@ module.exports =
       for repo in repos
         break unless repo?
         for filePath of repo.statuses
-          console.log filePath
           if repo.isPathModified(filePath) or repo.isPathNew(filePath)
-            console.log path.join(repo.repo.workingDirectory, filePath)
             atom.workspace.open(path.join(repo.repo.workingDirectory, filePath))
     else
       atom.beep()
