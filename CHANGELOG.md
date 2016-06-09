@@ -1,3 +1,6 @@
+## 0.2.2 - Bugfixes
+* Support atom 1.8
+
 ## 0.2.1 - Bugfixes
 * Fix crashing bug that happen if project isn't managed by git
 
