@@ -1,5 +1,6 @@
 {CompositeDisposable} = require 'atom'
 path = require 'path'
+fs = require 'fs-plus'
 
 module.exports =
   subscriptions: null
@@ -13,12 +14,9 @@ module.exports =
     @subscriptions.dispose()
 
   open: ->
-    repos = atom.project.getRepositories()
-    if repos?
-      for repo in repos
-        break unless repo?
-        for filePath of repo.statuses
+    for repo in atom.project.getRepositories() when repo?
+      repo.async.getWorkingDirectory().then (workingDirectory) =>
+        for filePath of repo.async.getCachedPathStatuses()
+          filePath = path.join(workingDirectory, filePath)
           if repo.isPathModified(filePath) or repo.isPathNew(filePath)
-            atom.workspace.open(path.join(repo.repo.workingDirectory, filePath))
-    else
-      atom.beep()
+            atom.workspace.open(filePath) if fs.isFileSync(filePath)
