@@ -13,7 +13,9 @@
   "repository": "https://github.com/hmatsuda/open-git-modified-files",
   "license": "MIT",
   "engines": {
-    "atom": ">=0.206.0 <2.0.0"
+    "atom": ">=1.8.0 <2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fs-plus": "^2.0.0"
+  }
 }
