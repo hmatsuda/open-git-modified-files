@@ -1,7 +1,7 @@
 {
   "name": "open-git-modified-files",
   "main": "./lib/open-git-modified-files",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Open git modified files",
   "keywords": [
     "git",
