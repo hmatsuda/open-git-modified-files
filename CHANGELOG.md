@@ -1,3 +1,6 @@
+## 0.2.4 - Bugfixes
+* Support atom 1.9
+
 ## 0.2.2 - Bugfixes
 * Support atom 1.8
 
