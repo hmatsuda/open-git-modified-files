@@ -15,8 +15,8 @@ module.exports =
 
   open: ->
     for repo in atom.project.getRepositories() when repo?
-      repo.async.getWorkingDirectory().then (workingDirectory) =>
-        for filePath of repo.async.getCachedPathStatuses()
-          filePath = path.join(workingDirectory, filePath)
-          if repo.isPathModified(filePath) or repo.isPathNew(filePath)
-            atom.workspace.open(filePath) if fs.isFileSync(filePath)
+      workingDirectory = repo.getWorkingDirectory()
+      for filePath of repo.statuses
+        filePath = path.join(workingDirectory, filePath)
+        if repo.isPathModified(filePath) or repo.isPathNew(filePath)
+          atom.workspace.open(filePath) if fs.isFileSync(filePath)
